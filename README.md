@@ -1,10 +1,10 @@
 # @clementprevot/pi-git-editor-guard
 
-A [Pi](https://pi.dev) extension that keeps git from hanging the coding agent on an editor: commands that would open `vim` (`rebase --continue` after a conflict, a bare `commit`, an interactive rebase, ...) are rewritten in place with `GIT_EDITOR=true` so git keeps its prepared message and finishes immediately.
+A [Pi](https://pi.dev) extension that keeps git from hanging the coding agent on an editor: commands that would open an interactive TTY editor (`rebase --continue` after a conflict, a bare `commit`, an interactive rebase, ...) are rewritten in place with `GIT_EDITOR=true` so git keeps its prepared message and finishes immediately.
 
 ## Why
 
-Agents manage rebases all the time, and the classic failure is the one nobody sees coming: `git rebase --continue` after resolving a conflict opens the editor to confirm the commit message. In the agent's non-interactive shell that editor either errors out or, worse, just sits there while the agent waits on a command that will never finish. The fix is well known (`GIT_EDITOR=true`, which overrides `core.editor` and `EDITOR`), but it relies on the model remembering it every single time. This guard makes forgetting impossible.
+Agents manage rebases all the time, and the classic failure is `git rebase --continue` after resolving a conflict opens the editor (e.g. VIM) to confirm the commit message. In the agent's non-interactive shell that editor either errors out or, worse, just sits there while the agent waits on a command that will never finish. The fix is well known (`GIT_EDITOR=true`, which overrides `core.editor` and `EDITOR`), but it relies on the model remembering it every single time. This guard makes forgetting impossible.
 
 ## Install
 
