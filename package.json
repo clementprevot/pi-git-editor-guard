@@ -1,0 +1,47 @@
+{
+	"description": "Pi extension that keeps git from opening an editor in the agent's non-interactive shell",
+	"devDependencies": {
+		"@earendil-works/pi-coding-agent": "*",
+		"@types/node": "^24.0.0",
+		"typescript": "^5.9.0"
+	},
+	"engines": {
+		"node": ">=22.6"
+	},
+	"files": [
+		"index.ts"
+	],
+	"keywords": [
+		"pi-package",
+		"pi-extension",
+		"git",
+		"guard",
+		"rebase",
+		"editor",
+		"vim"
+	],
+	"license": "MIT",
+	"name": "@clementprevot/pi-git-editor-guard",
+	"packageManager": "yarn@4.9.2",
+	"peerDependencies": {
+		"@earendil-works/pi-coding-agent": "*"
+	},
+	"pi": {
+		"extensions": [
+			"./index.ts"
+		]
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/clementprevot/pi-git-editor-guard.git"
+	},
+	"scripts": {
+		"test": "node --test test/*.test.ts",
+		"typecheck": "tsc --noEmit"
+	},
+	"type": "module",
+	"version": "0.1.0"
+}
